@@ -1,5 +1,5 @@
 #pragma once
-#define _NTSCSI_USER_MODE_ TRUE
+#define _CRT_SECURE_NO_WARNINGS 1
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
