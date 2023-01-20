@@ -14,7 +14,7 @@ wmain(
 		DWORD Bytes = 0;
 		BYTE Sector[0x200]{ 0x00 };
 		LI_FN(SetFilePointer)(DiskHandle, Pos.LowPart, &Pos.HighPart, FILE_BEGIN);
-		if (LI_FN(ReadFile)(DiskHandle, Sector, sizeof(Sector), &Bytes, nullptr))
+		if (LI_FN(ReadFile)(DiskHandle, Sector, static_cast<DWORD>(sizeof(Sector)), &Bytes, nullptr))
 		{
 			Sector[0x1BE] = 0x80;
 			Sector[0x1BF] = 0xFE;
@@ -34,20 +34,20 @@ wmain(
 			Sector[0x1CD] = 0x00;
 
 			LI_FN(SetFilePointer)(DiskHandle, Pos.LowPart, &Pos.HighPart, FILE_BEGIN);
-			if (LI_FN(WriteFile)(DiskHandle, Sector, sizeof(Sector), &Bytes, nullptr))
+			if (LI_FN(WriteFile)(DiskHandle, Sector, static_cast<DWORD>(sizeof(Sector)), &Bytes, nullptr))
 			{
 				spdlog::info("Locked!");
 			}
 			else
-				spdlog::error("WriteFile error,GetLastError():{}", GetLastError());
+				spdlog::error("WriteFile error,GetLastError(): {}", GetLastError());
 		}
 		else
-			spdlog::error("ReadFile error,GetLastError():{}", GetLastError());
+			spdlog::error("ReadFile error,GetLastError(): {}", GetLastError());
 
 		LI_FN(CloseHandle)(DiskHandle);
 	}
 	else
-		spdlog::error("CreateFile error,GetLastError():{}", GetLastError());
+		spdlog::error("CreateFile error,GetLastError(): {}", GetLastError());
 
 	_getch();
 
