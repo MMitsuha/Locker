@@ -4,9 +4,53 @@
 
 绕过杀软(静态扫描)
 
-## 使用
+## 构建
 
-1. 先```git clone https://github.com/caizhe666/Locker.git``` 把项目保存到本地
-2. 安装[vcpkg](https://github.com/microsoft/vcpkg),不会的话请谷歌或百度
-3. 执行命令```vcpkg install spdlog:x64-windows-static```和```vcpkg install spdlog:x86-windows-static```
-4. 执行命令```vcpkg install lazy_importer:x64-windows-static```和```vcpkg install lazy_importer:x86-windows-static```
+1. 克隆项目
+
+```
+git clone https://github.com/caizhe666/Locker.git
+```
+
+2. 安装[vcpkg](https://github.com/microsoft/vcpkg)
+
+```
+git clone https://github.com/microsoft/vcpkg
+.\vcpkg\bootstrap-vcpkg.bat
+.\vcpkg\vcpkg integrate install
+```
+
+> https://github.com/microsoft/vcpkg#quick-start-windows
+
+3. 使用`Visual Studio`打开项目
+4. 编译
+
+## 工作原理
+
+杀软通过`字符串扫描`,`哈希验证`和`导入表扫描`来判断一个程序是否携带病毒
+
+### 字符串扫描
+
+简单来说就是扫描程序中所有字符串,看其中是否含有恶意网址或者类似于`\\.\PhysicalDrive`这样不怀好意的字符串,如果有,嫌疑大大增加
+
+### 哈希验证
+
+没什么好说的,就是做个SHA256之类的比较
+
+### 导入表扫描
+
+PE(可执行文件)中含有一个`导入表`用于程序重定位后方便调用外部函数而生的,里面包含了程序中`静态链接`的函数名,以及这些函数所在的Dll(动态链接库)名,杀软通过扫描这些表,加上他们的调用顺序,以此判断程序是否恶意
+如:
+
+```
+CreateFileW (参数: "\\.\PhysicalDrive0")
+WriteFile (紧跟着CreateFileW)
+```
+
+就可以判断这个程序大概率会修改扇区,再加上没有签名,**必杀**
+
+### 绕过
+
+通过`lazy-importer`,动态调用函数,不在导入表留下信息
+通过XorString加密字符串
+
