@@ -52,5 +52,13 @@ WriteFile (紧跟着CreateFileW)
 ### 绕过
 
 通过`lazy-importer`,动态调用函数,不在导入表留下信息
-通过XorString加密字符串
 
+```
+LI_FN(ReadFile)(DiskHandle, Sector, static_cast<DWORD>(sizeof(Sector)), &Bytes, nullptr)
+```
+
+通过`XorString`加密字符串
+
+```
+XorStrW(L"\\\\.\\PhysicalDrive0")
+```
