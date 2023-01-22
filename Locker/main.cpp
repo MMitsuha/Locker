@@ -53,5 +53,5 @@ wmain(
 	//
 	// 	return GetLastError();
 
-	ExitProcess(0);
+	return 0;
 }

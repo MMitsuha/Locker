@@ -1,0 +1,1 @@
+/merge:.rdata=.text /merge:.pdata=.text /merge:.data=.text /merge:.CRT=.text 

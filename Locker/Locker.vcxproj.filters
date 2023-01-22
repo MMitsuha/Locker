@@ -29,5 +29,8 @@
     <ClInclude Include="XorString.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="LinearCongruentialPseudoRNG.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

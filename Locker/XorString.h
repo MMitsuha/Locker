@@ -2,6 +2,7 @@
 #include <string>
 #include <array>
 #include <cstdarg>
+#include "LinearCongruentialPseudoRNG.h"
 
 #define BEGIN_NAMESPACE( x ) namespace x {
 #define END_NAMESPACE }
@@ -38,7 +39,8 @@ public:
 template <>
 struct RandomGenerator< 0 >
 {
-	static constexpr unsigned value = seed;
+	//static constexpr unsigned value = seed;
+	static constexpr unsigned value = LCG_RANDOM();
 };
 
 template < int N, int M >
