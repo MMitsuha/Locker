@@ -7,6 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Locker", "Locker\Locker.vcx
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{DDFF9114-0236-4F2C-9937-F0E772C1F5FE}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		.github\workflows\msbuild.yml = .github\workflows\msbuild.yml
 		README.md = README.md
 		vcpkg.json = vcpkg.json
