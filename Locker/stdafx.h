@@ -14,6 +14,7 @@
 #include <winioctl.h>
 #include <scsi.h>
 #include <ntddscsi.h>
+#include <winternl.h>
 
 #ifndef _DEBUG
 void* __cdecl memset(
