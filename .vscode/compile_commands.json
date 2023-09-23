@@ -1,0 +1,6 @@
+[
+{
+  "directory": "c:\\Users\\mmits\\Locker",
+  "arguments": ["C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.37.32822\\bin\\HostX64\\x64\\cl.exe", "/c", "/nologo", "/Zi", "/FS", "/Fdbuild\\windows\\x64\\debug\\compile.Locker.pdb", "/Od", "/MTd", "/EHsc", "/IC:\\Users\\mmits\\AppData\\Local\\.xmake\\packages\\s\\spdlog\\v1.12.0\\ca6faa79d5784caf8a7bfafdc444f6e9\\include", "/IC:\\Users\\mmits\\AppData\\Local\\.xmake\\packages\\f\\fmt\\10.1.1\\3f81e3a6f4744200b85935bea59e7bcd\\include", "/IC:\\Users\\mmits\\vcpkg\\installed\\x64-windows-static\\include", "/Fobuild\\.objs\\Locker\\windows\\x64\\debug\\src\\main.cpp.obj", "src\\main.cpp"],
+  "file": "src\\main.cpp"
+}]

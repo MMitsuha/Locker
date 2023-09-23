@@ -6,24 +6,31 @@
 
 ## 构建
 
-1. 克隆项目
+克隆项目
 
-```
+```bash
 git clone https://github.com/caizhe666/Locker.git
 ```
 
-2. 安装[vcpkg](https://github.com/microsoft/vcpkg)
+安装 `vcpkg`
 
-```
+```bash
 git clone https://github.com/microsoft/vcpkg
 .\vcpkg\bootstrap-vcpkg.bat
 .\vcpkg\vcpkg integrate install
 ```
 
-> https://github.com/microsoft/vcpkg#quick-start-windows
+安装 `xmake`
 
-3. 使用`Visual Studio`打开项目
-4. 编译
+```powershell
+Invoke-Expression (Invoke-Webrequest 'https://xmake.io/psget.text' -UseBasicParsing).Content
+```
+
+执行编译
+
+```bash
+xmake
+```
 
 ## 工作原理
 
