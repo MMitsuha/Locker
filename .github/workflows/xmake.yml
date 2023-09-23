@@ -60,4 +60,4 @@ jobs:
        vcpkgGitCommitId: '${{ matrix.vcpkgCommitId }}'
 
     - name: Build
-      run: xmake
+      run: xmake -y -v
