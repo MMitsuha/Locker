@@ -33,7 +33,7 @@ jobs:
             vcpkgCommitId: 'c9f906558f9bb12ee9811d6edc98ec9255c6cda5'
           - os: ubuntu-latest
             c_compiler: cl
-            cpp_compiler: gcl
+            cpp_compiler: cl
             vcpkgCommitId: 'c9f906558f9bb12ee9811d6edc98ec9255c6cda5'
         exclude:
           - os: windows-latest
