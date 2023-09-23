@@ -32,12 +32,8 @@ jobs:
             cpp_compiler: cl
             vcpkgCommitId: 'c9f906558f9bb12ee9811d6edc98ec9255c6cda5'
           - os: ubuntu-latest
-            c_compiler: gcc
-            cpp_compiler: g++
-            vcpkgCommitId: 'c9f906558f9bb12ee9811d6edc98ec9255c6cda5'
-          - os: ubuntu-latest
-            c_compiler: clang
-            cpp_compiler: clang++
+            c_compiler: cl
+            cpp_compiler: gcl
             vcpkgCommitId: 'c9f906558f9bb12ee9811d6edc98ec9255c6cda5'
         exclude:
           - os: windows-latest
@@ -45,7 +41,9 @@ jobs:
           - os: windows-latest
             c_compiler: clang
           - os: ubuntu-latest
-            c_compiler: cl
+            c_compiler: gcc
+          - os: ubuntu-latest
+            c_compiler: clang
 
     steps:
     - uses: actions/checkout@v3
