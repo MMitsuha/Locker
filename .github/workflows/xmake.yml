@@ -36,6 +36,12 @@ jobs:
           - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
+          - os: windows-latest
+            vcpkgCommitId: 'c9f906558f9bb12ee9811d6edc98ec9255c6cda5'
+          - os: ubuntu-latest
+            vcpkgCommitId: 'c9f906558f9bb12ee9811d6edc98ec9255c6cda5'
+          - os: macos-latest
+            vcpkgCommitId: 'c9f906558f9bb12ee9811d6edc98ec9255c6cda5'
         exclude:
           - os: windows-latest
             c_compiler: gcc
@@ -53,6 +59,8 @@ jobs:
 
     - name: Setup vcpkg (it does not install any package yet)
       uses: lukka/run-vcpkg@v11
+      with:
+       vcpkgGitCommitId: '${{ matrix.vcpkgCommitId }}'
 
     - name: Build
       run: xmake
